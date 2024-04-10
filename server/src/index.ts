@@ -1,0 +1,42 @@
+import { Server } from "socket.io";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+import { findOrCreateDocument, updateDocument } from "./controllers/documentController" ;
+
+const PORT = Number(process.env.PORT || 3000) ;
+
+/** Connect to MongoDB */
+mongoose.connect(process.env.DATABASE_URL  || "", { dbName: "Google-Docs" })
+.then(() => { console.log("Database connected.");})
+.catch((error) => { console.log("DB connection failed. " + error);}) ;
+
+const io = new Server(PORT, {
+  cors: {
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST"],
+  },
+});
+
+io.on("connection", socket => {
+    console.log("Connected..!") ;
+
+    socket.on("get-document", async (documentId) => {
+      socket.join(documentId) ;
+    
+      const document = await findOrCreateDocument(documentId) ;
+
+      if(document)
+        socket.emit("load-document", document.data) ;
+
+      socket.on("send-changes", delta => {
+        socket.broadcast.to(documentId).emit("receive-changes", delta) ;
+      });
+
+      socket.on("save-document", async (data) => {
+        await updateDocument(documentId, { data }) ;
+      })
+
+    })
+
+})
