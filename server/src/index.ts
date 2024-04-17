@@ -2,7 +2,7 @@ import { Server } from "socket.io";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
-import { findOrCreateDocument, updateDocument } from "./controllers/documentController" ;
+import { getAllDocuments, findOrCreateDocument, updateDocument } from "./controllers/documentController" ;
 
 const PORT = Number(process.env.PORT || 3000) ;
 
@@ -19,7 +19,12 @@ const io = new Server(PORT, {
 });
 
 io.on("connection", socket => {
-    console.log("Connected..!") ;
+    console.log("A client connected..!") ;
+
+    socket.on("get-all-documents", async () => {
+      const allDocuments = await getAllDocuments() ;
+      socket.emit("all-documents", allDocuments) ;
+    })
 
     socket.on("get-document", async (documentId) => {
       socket.join(documentId) ;

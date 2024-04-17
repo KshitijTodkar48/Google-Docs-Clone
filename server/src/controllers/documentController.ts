@@ -2,6 +2,11 @@ import { Document } from "../models/documentModel";
 
 const defaultData = "";
 
+export const getAllDocuments = async() => {
+    const documents = await Document.find() ;
+    return documents ;
+}
+
 export const findOrCreateDocument = async(id: string) => {
     if(!id){
         return ;

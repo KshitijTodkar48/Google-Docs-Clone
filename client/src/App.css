@@ -1,4 +1,4 @@
-body {
+.editorContainer {
   background-color: #F3F3F3;
 }
 
@@ -52,4 +52,118 @@ body {
   .editorContainer .ql-toolbar.ql-snow {
     display: none;
   }
+}
+
+.LandingPage {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 18px;
+  padding: 4px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.docs {
+  border: 1px solid rgb(212, 212, 212);
+  background-color: white;
+  height: 270px;
+  width: 200px;
+  margin: 5px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.docs:hover {
+  border-color: rgb(10, 136, 209);
+}
+
+.docs > img {
+  height: 65%;
+  width: 75%;
+  padding: 15px 0 10px 0;
+}
+
+.newdocs {
+  height: 200px;
+  width: 170px;
+  margin-top: 10px;
+}
+
+.newdocs > img {
+  height: 90%;
+  width: 80%;
+  padding: 15px 0 10px 0;
+}
+
+.docs > div {
+  border-top: 1px solid rgb(212, 212, 212);
+  padding: 5px;
+}
+
+.Docs-container-1 {
+  background-color: #F3F3F3;
+  padding: 15px 20px 20px 100px;
+}
+
+.Docs-container-2 {
+  padding: 15px 20px 20px 100px;
+}
+
+.Docs-container-2 > div {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.Topbar {
+  display: flex;
+  gap: 330px;
+  align-items: center;
+}
+
+.logodiv{
+  display: flex;
+  gap: 10px;
+  height: 50px;
+  font-size: 25px;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  margin-left: 50px;
+  color: rgb(103, 103, 103);
+}
+
+.logodiv > img {
+  height: 75%;
+}
+
+.Searchbar {
+  height: 40px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  border-radius: 7px;
+  padding: 0 20px 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.Searchbar > img {
+  height: 50%;
+}
+
+.Searchbar > input {
+  border: none;
+  height: 30px;
+  width: 500px;
+  font-size: 16px;
+}
+
+*:focus {
+  outline: none;
 }

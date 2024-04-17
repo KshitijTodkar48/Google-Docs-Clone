@@ -29,18 +29,16 @@ const io = new socket_io_1.Server(PORT, {
     },
 });
 io.on("connection", socket => {
-    console.log("Connected..!");
+    console.log("A client connected..!");
+    socket.on("get-all-documents", () => __awaiter(void 0, void 0, void 0, function* () {
+        const allDocuments = yield (0, documentController_1.getAllDocuments)();
+        socket.emit("all-documents", allDocuments);
+    }));
     socket.on("get-document", (documentId) => __awaiter(void 0, void 0, void 0, function* () {
-        console.log(documentId);
-        try {
-            socket.join(documentId);
-            const document = yield (0, documentController_1.findOrCreateDocument)(documentId);
-            if (document)
-                socket.emit("load-document", document.data);
-        }
-        catch (error) {
-            console.log(error, "HTHTHTHTHT");
-        }
+        socket.join(documentId);
+        const document = yield (0, documentController_1.findOrCreateDocument)(documentId);
+        if (document)
+            socket.emit("load-document", document.data);
         socket.on("send-changes", delta => {
             socket.broadcast.to(documentId).emit("receive-changes", delta);
         });

@@ -9,9 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateDocument = exports.findOrCreateDocument = void 0;
+exports.updateDocument = exports.findOrCreateDocument = exports.getAllDocuments = void 0;
 const documentModel_1 = require("../models/documentModel");
 const defaultData = "";
+const getAllDocuments = () => __awaiter(void 0, void 0, void 0, function* () {
+    const documents = yield documentModel_1.Document.find();
+    return documents;
+});
+exports.getAllDocuments = getAllDocuments;
 const findOrCreateDocument = (id) => __awaiter(void 0, void 0, void 0, function* () {
     if (!id) {
         return;
