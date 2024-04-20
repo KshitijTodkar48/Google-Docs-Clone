@@ -23,13 +23,13 @@ io.on("connection", socket => {
 
     socket.on("get-all-documents", async () => {
       const allDocuments = await getAllDocuments() ;
+      allDocuments.reverse() ; // To get most recent docs first.
       socket.emit("all-documents", allDocuments) ;
     })
 
-    socket.on("get-document", async (documentId) => {
+    socket.on("get-document", async ( { documentId, documentName } ) => {
       socket.join(documentId) ;
-    
-      const document = await findOrCreateDocument(documentId) ;
+      const document = await findOrCreateDocument({ documentId, documentName }) ;
 
       if(document)
         socket.emit("load-document", document.data) ;

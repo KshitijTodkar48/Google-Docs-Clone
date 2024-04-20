@@ -7,16 +7,16 @@ export const getAllDocuments = async() => {
     return documents ;
 }
 
-export const findOrCreateDocument = async(id: string) => {
-    if(!id){
+export const findOrCreateDocument = async({ documentId, documentName }: { documentId: string, documentName: string }) => {
+    if(!documentId){
         return ;
     }   
-    const document = await Document.findById(id) ;
+    const document = await Document.findById(documentId) ;
     if(document){
         return document ;
     }
 
-    const newDocument = await Document.create({ _id: id, data: defaultData }) ;
+    const newDocument = await Document.create({ _id: documentId, name: documentName , data: defaultData }) ;
     
     return newDocument ;
 }
