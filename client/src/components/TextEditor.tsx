@@ -86,7 +86,8 @@ export const TextEditor = () => {
             quill.enable() ;
         })
 
-        socket.emit("get-document", documentId) ;
+        const documentName = localStorage.getItem(`document-name-for-${documentId}`) || "Untitled" ;
+        socket.emit("get-document", { documentId, documentName }) ;
 
     }, [socket, quill, documentId])
 
@@ -100,6 +101,7 @@ export const TextEditor = () => {
 
         return () => {
             clearInterval(interval) ;
+            localStorage.clear() ;
         }
     }, [socket, quill])
 

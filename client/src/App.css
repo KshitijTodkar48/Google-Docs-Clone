@@ -60,22 +60,32 @@
   flex-direction: column;
 }
 
-.title {
+.title-1 {
   font-size: 18px;
-  padding: 4px;
-  margin-left: 10px;
+  padding: 4px 0;
   margin-bottom: 10px;
+}
+
+.title-2 {
+  font-size: 18px;
+  padding: 4px 0;
+  margin-bottom: 8px;
+  margin-left: 5px;
 }
 
 .docs {
   border: 1px solid rgb(212, 212, 212);
   background-color: white;
-  height: 270px;
-  width: 200px;
+  height: 260px;
+  width: 190px;
   margin: 5px;
   border-radius: 5px;
   text-align: center;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .docs:hover {
@@ -83,14 +93,14 @@
 }
 
 .docs > img {
-  height: 65%;
-  width: 75%;
-  padding: 15px 0 10px 0;
+  height: 85%;
+  width: 80%;
+  padding: 10px 0 10px 0;
 }
 
 .newdocs {
   height: 200px;
-  width: 170px;
+  width: 160px;
   margin-top: 10px;
 }
 
@@ -101,8 +111,12 @@
 }
 
 .docs > div {
+  width: 100%;
   border-top: 1px solid rgb(212, 212, 212);
   padding: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  overflow: hidden;
 }
 
 .Docs-container-1 {
@@ -111,7 +125,7 @@
 }
 
 .Docs-container-2 {
-  padding: 15px 20px 20px 100px;
+  padding: 15px 20px 20px 95px;
 }
 
 .Docs-container-2 > div {
@@ -124,6 +138,7 @@
   display: flex;
   gap: 330px;
   align-items: center;
+  padding: 3px 0 2px 0;
 }
 
 .logodiv{

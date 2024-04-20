@@ -1,4 +1,4 @@
-import Img1 from "../assets/Google-Docs-logo-2048x1152.png" ;
+import Img1 from "../assets/Google-Docs-logo.png" ;
 import Img2 from "../assets/SearchIcon.jpeg" ;
 
 export const Topbar = () => {
