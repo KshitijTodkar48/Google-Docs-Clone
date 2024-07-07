@@ -7,13 +7,13 @@ import { getAllDocuments, findOrCreateDocument, updateDocument } from "./control
 const PORT = Number(process.env.PORT || 3000) ;
 
 /** Connect to MongoDB */
-mongoose.connect(process.env.DATABASE_URL  || "", { dbName: "Google-Docs" })
+mongoose.connect(process.env.DATABASE_URL || "", { dbName: "Google-Docs" })
 .then(() => { console.log("Database connected.");})
 .catch((error) => { console.log("DB connection failed. " + error);}) ;
 
 const io = new Server(PORT, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_ORIGIN || "http://localhost:5173",
     methods: ["GET", "POST"],
   },
 });
