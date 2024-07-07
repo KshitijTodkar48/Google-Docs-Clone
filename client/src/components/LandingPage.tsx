@@ -19,7 +19,7 @@ export const LandingPage = () => {
     const [documents, setDocuments] = useState<DocumentType[]>([]) ;
 
     useEffect(() => {
-        const socket = io("http://localhost:3000") ;
+        const socket = io(import.meta.env.VITE_SERVER_URL) ;
 
         socket.emit("get-all-documents") ;
 

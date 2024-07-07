@@ -11,7 +11,7 @@ export const TextEditor = () => {
     const { id: documentId } = useParams() ;
     
     useEffect(() => {
-        const skt = io("http://localhost:3000") ;
+        const skt = io(import.meta.env.VITE_SERVER_URL) ;
         setSocket(skt) ;
         return () => {
             skt.disconnect() ;
