@@ -24,8 +24,6 @@ export const LandingPage = () => {
         socket.emit("get-all-documents") ;
 
         socket.on("all-documents", (allDocuments) => {
-            console.log(allDocuments);
-            
             setDocuments(allDocuments) ;
         });
         
