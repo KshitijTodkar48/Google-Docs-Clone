@@ -80,7 +80,7 @@ Here's what you need to be able to run the application locally:
 5. Run the following command:
    
     ```sh
-      npm run dev
+    npm run dev
     ```
 
   Now the backend server will be running on http://localhost:3000
@@ -105,7 +105,7 @@ Here's what you need to be able to run the application locally:
    
 10. Run the following command: 
     ```sh
-      npm run dev
+    npm run dev
     ```
     
  The React app will be running on http://localhost:5173
@@ -119,7 +119,7 @@ Here's what you need to be able to run the application locally:
 
 2. Run the following command in the root directory: 
     ```sh
-      docker-compose up
+    docker-compose up
     ```
 
 Now the application will be running on http://localhost:5173
