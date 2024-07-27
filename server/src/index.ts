@@ -19,8 +19,7 @@ const io = new Server(PORT, {
 });
 
 io.on("connection", socket => {
-    console.log("A client connected..!") ;
-
+  
     socket.on("get-all-documents", async () => {
       const allDocuments = await getAllDocuments() ;
       allDocuments.reverse() ; // To get most recent docs first.
