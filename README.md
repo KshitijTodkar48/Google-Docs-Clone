@@ -24,6 +24,7 @@
 
 - **Other Tools:**
   - TypeScript
+  - Docker
 
 ## ▶️ Getting Started
 
@@ -39,28 +40,21 @@ Here's what you need to be able to run the application locally:
 
 ## 💻 Development
 
-### 🟢 Setup
+### 🟢 Setup (without Docker) :
 
-1. Clone the repo into a public GitHub repository (or fork https://github.com/KshitijTodkar48/Google-Docs-Clone/fork).
+1. Clone the repo. (or fork https://github.com/KshitijTodkar48/Google-Docs-Clone/fork).
 
    ```sh
    git clone https://github.com/KshitijTodkar48/Google-Docs-Clone.git
    ```
 
-   
-2. Go to the project folder
-
-   ```sh
-   cd Google-Docs-Clone
-   ```
-   
-3. Go to the server directory
+2. Go to the server directory.
  
    ```sh
    cd server
    ```
 
-4. Install packages with npm/yarn
+3. Install packages with npm/yarn.
 
    ```sh
    npm install
@@ -72,41 +66,63 @@ Here's what you need to be able to run the application locally:
    ```
 
    
-5. Set up your `.env` variables.
+4. Set up your `.env` variables.
 
-   Create a new file named `.env`, one in `Google-Docs-Clone/server` directory.
+   Create a new file named `.env` in `Google-Docs-Clone/server` directory.
 
-   Add a variable named `DATABASE_URL` in it.
+   In the server `.env` file, add a variable named `DATABASE_URL`.
    
    - You will need you own MongoDB database (local or cloud). Put its link under `DATABASE_URL` in the `.env` file.
+
+   Add another variable named `CLIENT_ORIGIN` and set its value to `http://localhost:5173`.
+
   
-6. Run the following command:
+5. Run the following command:
    
     ```sh
       npm run dev
     ```
 
-Now the backend server will be running on http://localhost:3000
+  Now the backend server will be running on http://localhost:3000
 
-7. Open a new terminal and go to the client directory
+6. Open a new terminal and go to the client directory.
 
    ```sh
    cd client
    ```
 
-8. Install the client dependencies with npm/yarn
+7. Install the client dependencies with npm/yarn.
 
    ```sh
    npm install
    ```
 
-9. Run the following command:
+8. Set up your `.env` variables.
+
+   Create a new file named `.env` in `Google-Docs-Clone/client` directory.
    
+   In that file, add a variable named `VITE_SERVER_URL` and set its value to `http://localhost:3000`.
+   
+10. Run the following command: 
     ```sh
       npm run dev
     ```
+    
+ The React app will be running on http://localhost:5173
 
-The React app will be running on http://localhost:5173
+
+## 🐋 Setup (with Docker) :
+
+1. Set up environment variables:
+   - Follow the steps 4 and 8 in the above 'Setup without docker' guide.
+     
+
+2. Run the following command in the root directory: 
+    ```sh
+      docker-compose up
+    ```
+
+Now the application will be running on http://localhost:5173
 
 
 ## ▶️ Preview
