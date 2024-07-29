@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  client:
+    build:
+      context: ./client
+    ports:
+      - "5173:5173"
+    env_file:
+      - ./client/.env
+
+  server:
+    build:
+      context: ./server
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./server/.env
