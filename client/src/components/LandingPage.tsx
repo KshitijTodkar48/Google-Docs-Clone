@@ -44,7 +44,7 @@ export const LandingPage = () => {
                 (documents.length > 0) && (
                 <div className="Docs-container-2">
                     <div className="title-2"> Recent documents </div>
-                    <div>
+                    <div className="grid grid-cols-6">
                     {
                         documents?.map((docs, index) => 
                             <Docs documentId={docs._id} docName={docs.name} key={index}/>
